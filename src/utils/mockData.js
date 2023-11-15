@@ -1,26 +1,3 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-
-// React.createElement is an Object, when we render it to DOM it becomes HTML Element
-
-const Header = () => (
-    <div className="header">
-        <div className="logo-container">
-            <img
-                className="logo"
-                src="https://www.logodesign.net/logo/smoking-burger-with-lettuce-3624ld.png" alt="logo" />
-        </div>
-        <div className="nav-items">
-            <ul>
-                <li>Home</li>
-                <li>About Us</li>
-                <li>Contact Us</li>
-                <li>Cart</li>
-            </ul>
-        </div>
-    </div>
-);
-
 const resList = [{
     "info": {
         "id": "495655",
@@ -488,54 +465,4 @@ const resList = [{
     }
 }];
 
-// const RestaurantCard = ({ resData }) => (
-//     <div className="res-card" style={{ backgroundColor: "#f0f0f0" }}>
-//         <img
-//             className="res-logo"
-//             src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + resData.info.cloudinaryImageId} alt="res-logo" />
-//         <h3>{resData.info.name}</h3>
-//         <h4>{resData.info.cuisines}</h4>
-//         <h4>{resData.info.avgRating} Stars</h4>
-//         <h4>{resData.info.sla.deliveryTime} mins</h4>
-//     </div>
-// );
-
-
-//! Destructuring the component
-
-const RestaurantCard = ({ resData: { info: { cloudinaryImageId, name, cuisines, avgRating, sla } } }) => (
-
-    <div className="res-card" style={{ backgroundColor: "#f0f0f0" }}>
-        <img
-            className="res-logo"
-            src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + cloudinaryImageId} alt="res-logo" />
-        <h3>{name}</h3>
-        <h4>{cuisines}</h4>
-        <h4>{avgRating} Stars</h4>
-        <h4>{sla.deliveryTime} mins</h4>
-    </div>
-);
-
-const Body = () => (
-    <div className="body">
-        <div className="Search">
-            Search
-        </div>
-        <div className="res-container">
-            {resList.map((resturant) => (
-                <RestaurantCard key={resturant.info.id} resData={resturant} />
-            ))}
-        </div>
-    </div>
-);
-
-const AppLayout = () => (
-    <div className="app">
-        <Header />
-        <Body />
-    </div>
-);
-
-const root1 = ReactDOM.createRoot(document.getElementById("root"));
-
-root1.render(<AppLayout />);
+export default resList;
